@@ -1,0 +1,901 @@
+{
+    "keybind": 211,
+    "modules": [
+        {
+            "name": "AutoClicker",
+            "enabled": true,
+            "keybind": 0,
+            "Min CPS": 12.0,
+            "Max CPS": 15.0,
+            "Jitter": 0.0,
+            "Block hit chance": 0.0,
+            "Left click": true,
+            "Right click": false,
+            "Break blocks": true,
+            "Inventory fill": false,
+            "Weapon only": true,
+            "Blocks only": false
+        },
+        {
+            "name": "AimAssist",
+            "enabled": false,
+            "keybind": 0,
+            "Speed": 75.0,
+            "FOV": 60.0,
+            "Distance": 4.5,
+            "Click aim": true,
+            "Weapon only": true,
+            "Aim invis": false,
+            "Blatant mode": false
+        },
+        {
+            "name": "AntiKnockback",
+            "enabled": true,
+            "keybind": 0,
+            "Horizontal": 0.0,
+            "Vertical": 0.0,
+            "Cancel explosion packet": true,
+            "Damage boost": false,
+            "Boost multiplier": 2.0,
+            "Ground check": false
+        },
+        {
+            "name": "BurstClicker",
+            "enabled": false,
+            "keybind": 0,
+            "Clicks": 0.0,
+            "Delay (ms)": 5.0,
+            "Delay randomizer": true,
+            "Place with blocks": false
+        },
+        {
+            "name": "ClickAssist",
+            "enabled": false,
+            "keybind": 0,
+            "Disable in creative": true,
+            "Left click": true,
+            "Chance left": 80.0,
+            "Weapon only": false,
+            "Only while targeting": false,
+            "Right click": false,
+            "Chance right": 80.0,
+            "Blocks only": true,
+            "Above 5 cps": true
+        },
+        {
+            "name": "Hitbox",
+            "enabled": false,
+            "keybind": 0,
+            "Multiplier": 1.2,
+            "Players only": true,
+            "Show modified hitbox": false,
+            "Weapon only": false
+        },
+        {
+            "name": "Jump Reset",
+            "enabled": false,
+            "keybind": 0,
+            "Chance": 90.0,
+            "Jump motion": 0.42
+        },
+        {
+            "name": "KillAura",
+            "enabled": true,
+            "keybind": 44,
+            "APS": 14.0,
+            "Autoblock": 5.0,
+            "FOV": 360.0,
+            "Range (attack)": 3.1,
+            "Range (swing)": 3.1,
+            "Range (block)": 7.0,
+            "Rotation mode": 0.0,
+            "Rotation smoothing": 0.0,
+            "Sort mode": 0.0,
+            "Switch delay": 100.0,
+            "Targets (max)": 4.0,
+            "Aim invis": true,
+            "Disable in inventory": true,
+            "Disable while blocking": false,
+            "Disable while mining": true,
+            "Fix ghosting": true,
+            "Hit through blocks": true,
+            "Ignore teammates": true,
+            "Prioritize enemies": true,
+            "Require mouse down": false,
+            "Silent swing while blocking": false,
+            "Weapon only": true
+        },
+        {
+            "name": "Reach",
+            "enabled": false,
+            "keybind": 0,
+            "Min": 3.1,
+            "Max": 3.3,
+            "Weapon only": false,
+            "Moving only": false,
+            "Sprint only": false,
+            "Hit through blocks": false
+        },
+        {
+            "name": "Reduce",
+            "enabled": false,
+            "keybind": 0,
+            "Attack reduction": 60.0,
+            "Chance": 100.0
+        },
+        {
+            "name": "RodAimbot",
+            "enabled": false,
+            "keybind": 0,
+            "FOV": 180.0,
+            "Predicted ticks": 5.0,
+            "Range": 6.0,
+            "Aim invis": false,
+            "Ignore teammates": false
+        },
+        {
+            "name": "TPAura",
+            "enabled": false,
+            "keybind": 0,
+            "Range": 0.0,
+            "Weapon only": false
+        },
+        {
+            "name": "Velocity",
+            "enabled": false,
+            "keybind": 0,
+            "Horizontal": 90.0,
+            "Vertical": 100.0,
+            "Chance": 100.0,
+            "Only while targeting": false,
+            "Disable while holding S": false
+        },
+        {
+            "name": "WTap",
+            "enabled": true,
+            "keybind": 0,
+            "Chance": 85.0,
+            "Players only": true
+        },
+        {
+            "name": "Bhop",
+            "enabled": false,
+            "keybind": 47,
+            "Mode": 1.0,
+            "Speed": 1.0,
+            "Auto jump": true,
+            "Disable in water": true,
+            "Disable while sneaking": true,
+            "Stop motion": false
+        },
+        {
+            "name": "Boost",
+            "enabled": false,
+            "keybind": 0,
+            "Boost ticks": 15.0,
+            "Multiplier": 2.0
+        },
+        {
+            "name": "Dolphin",
+            "enabled": false,
+            "keybind": 0,
+            "Horizontal speed": 1.0,
+            "Vertical speed": 1.0,
+            "Buoyant": false,
+            "Disable while using": true,
+            "Disable vertical while moving": false,
+            "Forward only": true
+        },
+        {
+            "name": "Fly",
+            "enabled": false,
+            "keybind": 0,
+            "Value": 1.0,
+            "Horizontal speed": 2.0,
+            "Vertical speed": 2.0,
+            "Show BPS": false,
+            "Stop motion": false
+        },
+        {
+            "name": "InvMove",
+            "enabled": true,
+            "keybind": 0
+        },
+        {
+            "name": "KeepSprint",
+            "enabled": true,
+            "keybind": 0,
+            "Slow": 0.0,
+            "Disable while jumping": false,
+            "Only reduce reach hits": false
+        },
+        {
+            "name": "Long Jump",
+            "enabled": false,
+            "keybind": 45,
+            "Mode": 1.0,
+            "Horizontal speed": 1.7,
+            "Vertical speed": 0.0,
+            "Boost ticks": 1.0,
+            "Hurt time boost": false,
+            "Invert yaw": false
+        },
+        {
+            "name": "NoSlow",
+            "enabled": true,
+            "keybind": 0,
+            "Mode": 3.0,
+            "Slow %": 0.0,
+            "Disable bow": false,
+            "Sword only": false,
+            "Vanilla sword": true
+        },
+        {
+            "name": "Speed",
+            "enabled": false,
+            "keybind": 0,
+            "Speed": 1.2,
+            "Strafe only": false
+        },
+        {
+            "name": "Sprint",
+            "enabled": true,
+            "keybind": 0,
+            "posX": 5,
+            "posY": 5,
+            "text": "[Sprint (Toggled)]",
+            "Display text": false,
+            "Rainbow": false
+        },
+        {
+            "name": "Stop Motion",
+            "enabled": false,
+            "keybind": 0,
+            "Stop X": true,
+            "Stop Y": true,
+            "Stop Z": true
+        },
+        {
+            "name": "Teleport",
+            "enabled": false,
+            "keybind": 0,
+            "Right click teleport": true,
+            "Highlight target": true,
+            "Highlight path": false
+        },
+        {
+            "name": "Timer",
+            "enabled": false,
+            "keybind": 0,
+            "Speed": 1.0,
+            "Strafe only": false
+        },
+        {
+            "name": "VClip",
+            "enabled": false,
+            "keybind": 0,
+            "Distance": 3.0,
+            "Send message": true,
+            "Send packets": false
+        },
+        {
+            "name": "AntiAFK",
+            "enabled": false,
+            "keybind": 0,
+            "AFK": 0.0,
+            "Jump": false,
+            "Jump only when collided": false,
+            "Random clicks": false,
+            "Swap item": false,
+            "Spin": 0.0,
+            "Randomize delta": true,
+            "Randomize pitch": true,
+            "Minimum delay ticks": 10.0,
+            "Maximum delay ticks": 80.0
+        },
+        {
+            "name": "AntiFireball",
+            "enabled": true,
+            "keybind": 0,
+            "FOV": 360.0,
+            "Range": 10.0,
+            "Disable while flying": true,
+            "Rotate with blocks": false,
+            "Rotate with projectiles": false
+        },
+        {
+            "name": "AutoJump",
+            "enabled": false,
+            "keybind": 0,
+            "Cancel when shifting": true
+        },
+        {
+            "name": "AutoPlace",
+            "enabled": true,
+            "keybind": 0,
+            "Frame delay": 7.0,
+            "Min place delay": 60.0,
+            "Min post delay": 30.0,
+            "Motion": 0.94,
+            "Disable left": true,
+            "Hold right": true,
+            "Fast place on jump": true,
+            "Pitch check": true
+        },
+        {
+            "name": "AutoSwap",
+            "enabled": false,
+            "keybind": 0,
+            "Only same type": false,
+            "Swap to greater stack": true
+        },
+        {
+            "name": "AutoTool",
+            "enabled": false,
+            "keybind": 0,
+            "Hover delay": 0.0,
+            "Disable while right click": true,
+            "Require mouse down": true,
+            "Swap to previous slot": true
+        },
+        {
+            "name": "BedAura",
+            "enabled": true,
+            "keybind": 48,
+            "Break mode": 2.0,
+            "FOV": 360.0,
+            "Range": 5.0,
+            "Rate": 0.15,
+            "Allow autoblock": true,
+            "Allow killaura": true,
+            "Break block above": true,
+            "Ground spoof": false,
+            "Only while visible": false,
+            "Render block outline": true,
+            "Silent swing": false
+        },
+        {
+            "name": "Blink",
+            "enabled": false,
+            "keybind": 0,
+            "Show initial position": false
+        },
+        {
+            "name": "Delay Remover",
+            "enabled": true,
+            "keybind": 0,
+            "1.7 hitreg": true,
+            "Remove jump ticks": true
+        },
+        {
+            "name": "Fake Lag",
+            "enabled": false,
+            "keybind": 0,
+            "Packet delay": 0.0,
+            "Cancel serverbound": false,
+            "Test": false
+        },
+        {
+            "name": "FastMine",
+            "enabled": true,
+            "keybind": 0,
+            "Break delay ticks": 0.0,
+            "Break speed multiplier": 1.4,
+            "Mode": 0.0
+        },
+        {
+            "name": "FastPlace",
+            "enabled": true,
+            "keybind": 0,
+            "Tick delay": 1.0,
+            "Blocks only": true,
+            "Pitch check": false
+        },
+        {
+            "name": "Freecam",
+            "enabled": false,
+            "keybind": 0,
+            "Mode": 0.0,
+            "Speed": 2.5,
+            "Allow chatting": false,
+            "Allow digging": false,
+            "Allow interacting": false,
+            "Allow placing": false,
+            "Disable on damage": true,
+            "Show arm": false
+        },
+        {
+            "name": "InvManager",
+            "enabled": false,
+            "keybind": 23,
+            "Auto armor": true,
+            "Auto armor delay": 1.0,
+            "Auto sort": true,
+            "Sort delay": 1.0,
+            "Steal chests": true,
+            "Custom chest": false,
+            "Close after stealing": true,
+            "Stealer delay": 1.0,
+            "Inventory cleaner": true,
+            "Middle click to clean": false,
+            "Cleaner delay": 1.0,
+            "Sword slot": 1.0,
+            "Blocks slot": 2.0,
+            "Golden apple slot": 4.0,
+            "Projectile slot": 5.0,
+            "Speed potion slot": 3.0,
+            "Pearl slot": 6.0
+        },
+        {
+            "name": "NoFall",
+            "enabled": false,
+            "keybind": 0,
+            "Mode": 1.0,
+            "Minimum fall distance": 5.0,
+            "Ignore void": true
+        },
+        {
+            "name": "NoRotate",
+            "enabled": true,
+            "keybind": 0
+        },
+        {
+            "name": "Safewalk",
+            "enabled": true,
+            "keybind": 0,
+            "Delay until next shift": 0.0,
+            "Blocks only": true,
+            "Disable on forward": true,
+            "Pitch check": true,
+            "Shift": false,
+            "Tower": false
+        },
+        {
+            "name": "Scaffold",
+            "enabled": false,
+            "keybind": 46,
+            "Motion": 0.95,
+            "Rotation": 0.0,
+            "Fast scaffold": 0.0,
+            "Precision": 2.0,
+            "AutoSwap": true,
+            "Highlight blocks": true,
+            "Multi-place": true,
+            "Safewalk": true,
+            "Show block count": false,
+            "Silent swing": false,
+            "Tower": true
+        },
+        {
+            "name": "Tower",
+            "enabled": false,
+            "keybind": 0,
+            "Mode": 0.0,
+            "Ground ticks": 1.0,
+            "Speed": 2.5,
+            "Diagonal speed": 2.2,
+            "Slowed speed": 0.0,
+            "Slowed ticks": 4.0,
+            "Disable while hurt": false
+        },
+        {
+            "name": "Water Bucket",
+            "enabled": false,
+            "keybind": 0,
+            "Pickup water": true,
+            "Silent aim": true,
+            "Switch to item": true
+        },
+        {
+            "name": "AntiBot",
+            "enabled": true,
+            "keybind": 0,
+            "Entity spawn delay": true,
+            "Delay": 1.5,
+            "Pit spawn check": false,
+            "Tab list": true
+        },
+        {
+            "name": "AntiShuffle",
+            "enabled": false,
+            "keybind": 0
+        },
+        {
+            "name": "BedESP",
+            "enabled": false,
+            "keybind": 0,
+            "Theme": 2.0,
+            "Range": 10.0,
+            "Rate": 0.4,
+            "Only render first bed": false
+        },
+        {
+            "name": "BreakProgress",
+            "enabled": true,
+            "keybind": 11,
+            "Mode": 0.0,
+            "Show Manual": false,
+            "Show BedAura": true
+        },
+        {
+            "name": "Chams",
+            "enabled": false,
+            "keybind": 0,
+            "Ignore bots": true
+        },
+        {
+            "name": "ChestESP",
+            "enabled": false,
+            "keybind": 0,
+            "Red": 0.0,
+            "Green": 200.0,
+            "Blue": 200.0,
+            "Rainbow": false,
+            "Outline": false,
+            "Shade": true,
+            "Disable if opened": false
+        },
+        {
+            "name": "Indicators",
+            "enabled": true,
+            "keybind": 11,
+            "Render arrows": true,
+            "Render ender pearls": true,
+            "Render fireballs": true,
+            "Arrow": 0.0,
+            "Circle radius": 50.0,
+            "Item colors": true,
+            "Render item": true,
+            "Render only threats": true,
+            "Show in chat": false
+        },
+        {
+            "name": "ItemESP",
+            "enabled": true,
+            "keybind": 11,
+            "Disable iron": false
+        },
+        {
+            "name": "MobESP",
+            "enabled": false,
+            "keybind": 0,
+            "Blaze": true,
+            "Creeper": true,
+            "Enderman": true,
+            "Ghast": true,
+            "Silverfish": true,
+            "Skeleton": true,
+            "Slime": true,
+            "Spider": true,
+            "Zombie": true,
+            "Zombie Pigman": true
+        },
+        {
+            "name": "Nametags",
+            "enabled": false,
+            "keybind": 29,
+            "Y-Offset": 0.0,
+            "Scale": 1.0,
+            "Auto-scale": true,
+            "Draw rect": true,
+            "Show health": false,
+            "Show hits to kill": false,
+            "Show invis": true,
+            "Remove tags": false,
+            "Render friends (green)": true,
+            "Render enemies (red)": true
+        },
+        {
+            "name": "PlayerESP",
+            "enabled": true,
+            "keybind": 11,
+            "Red": 0.0,
+            "Green": 255.0,
+            "Blue": 0.0,
+            "Rainbow": false,
+            "2D": false,
+            "Arrow": false,
+            "Box": false,
+            "Health": true,
+            "Ring": false,
+            "Shaded": false,
+            "Expand": 0.0,
+            "X-Shift": 0.0,
+            "Red on damage": true,
+            "Show invis": true
+        },
+        {
+            "name": "Radar",
+            "enabled": false,
+            "keybind": 0,
+            "Show in GUI": false,
+            "Show tracer lines": false
+        },
+        {
+            "name": "Shaders",
+            "enabled": true,
+            "keybind": 0,
+            "Shader": 6.0
+        },
+        {
+            "name": "TargetHUD",
+            "enabled": true,
+            "keybind": 11,
+            "Theme": 2.0,
+            "Render ESP": false,
+            "Show win or loss": true
+        },
+        {
+            "name": "Tracers",
+            "enabled": false,
+            "keybind": 0,
+            "Show invis": true,
+            "Line Width": 1.0,
+            "Red": 0.0,
+            "Green": 255.0,
+            "Blue": 0.0,
+            "Rainbow": false
+        },
+        {
+            "name": "Trajectories",
+            "enabled": true,
+            "keybind": 11,
+            "Auto-scale": true,
+            "Disable uncharged bow": true,
+            "Highlight on entity": true,
+            "Shorten line": true
+        },
+        {
+            "name": "HUD",
+            "enabled": true,
+            "keybind": 11,
+            "posX": 1275,
+            "posY": 5,
+            "Theme": 2.0,
+            "Align right": true,
+            "Alphabetical sort": false,
+            "Drop shadow": true,
+            "Lowercase": false,
+            "Remove closet modules": true,
+            "Remove render modules": true,
+            "Remove scripts": true,
+            "Show module info": true
+        },
+        {
+            "name": "Xray",
+            "enabled": false,
+            "keybind": 0,
+            "Range": 20.0,
+            "Rate": 0.5,
+            "Coal": false,
+            "Diamond": false,
+            "Emerald": false,
+            "Gold": false,
+            "Iron": false,
+            "Lapis": false,
+            "Obsidian": false,
+            "Redstone": false,
+            "Spawner": false
+        },
+        {
+            "name": "AutoWho",
+            "enabled": false,
+            "keybind": 0,
+            "Artificial": false,
+            "Hide message": false,
+            "Remove bots": true
+        },
+        {
+            "name": "Bedwars Helper",
+            "enabled": true,
+            "keybind": 0,
+            "Obsidian ESP": true,
+            "Whitelist own bed": true,
+            "Diamond armor": true,
+            "Invisible players": true,
+            "Obsidian on bed": true,
+            "Ender pearl": true,
+            "Should ping": true
+        },
+        {
+            "name": "Bridge Info",
+            "enabled": false,
+            "keybind": 0
+        },
+        {
+            "name": "Duels Stats",
+            "enabled": false,
+            "keybind": 0,
+            "Mode": 0.0,
+            "Send on join": false,
+            "Threat level": true
+        },
+        {
+            "name": "Murder Mystery",
+            "enabled": false,
+            "keybind": 0,
+            "Alert": true,
+            "Search detectives": true,
+            "Announce murderer": false,
+            "Gold ESP": true
+        },
+        {
+            "name": "Sumo Fences",
+            "enabled": false,
+            "keybind": 0,
+            "Fence height": 4.0,
+            "Block type": 1.0
+        },
+        {
+            "name": "WoolWars",
+            "enabled": false,
+            "keybind": 0,
+            "Break speed": 0.2,
+            "Delay after breaking": 3.0,
+            "Delay after placing": 1.0,
+            "Range": 5.0,
+            "Only visible": true,
+            "Only while middle clicking": true
+        },
+        {
+            "name": "Quakecraft",
+            "enabled": false,
+            "keybind": 0,
+            "Aimbot": false,
+            "Hitbox ESP": false
+        },
+        {
+            "name": "Extra bobbing",
+            "enabled": false,
+            "keybind": 0,
+            "Level": 1.0
+        },
+        {
+            "name": "Flame trail",
+            "enabled": false,
+            "keybind": 0
+        },
+        {
+            "name": "SlyPort",
+            "enabled": false,
+            "keybind": 0,
+            "Range": 6.0,
+            "Aim": true,
+            "Play sound": true,
+            "Players only": true
+        },
+        {
+            "name": "Spin",
+            "enabled": false,
+            "keybind": 0,
+            "Rotation yaw": 360.0,
+            "Speed": 25.0
+        },
+        {
+            "name": "Anticheat",
+            "enabled": true,
+            "keybind": 0,
+            "Flag interval": 20.0,
+            "Add cheaters as enemy": false,
+            "Ignore teammates": false,
+            "Only atlas suspect": false,
+            "Should ping": false,
+            "AutoBlock": true,
+            "NoSlow": true,
+            "Nuker": true,
+            "Scaffold": true,
+            "AimAssist": true,
+            "AutoClicker": true,
+            "FastMine": true,
+            "Legit Scaffold": true,
+            "Protocol": true
+        },
+        {
+            "name": "Fake Chat",
+            "enabled": false,
+            "keybind": 0
+        },
+        {
+            "name": "Latency Alerts",
+            "enabled": true,
+            "keybind": 0,
+            "Alert interval": 4.0,
+            "High latency": 1.5
+        },
+        {
+            "name": "Name Hider",
+            "enabled": false,
+            "keybind": 0,
+            "Hide all names": false
+        },
+        {
+            "name": "VPN Status",
+            "enabled": false,
+            "keybind": 0
+        },
+        {
+            "name": "Command Line",
+            "enabled": false,
+            "keybind": 0,
+            "Animate": true
+        },
+        {
+            "name": "Gui",
+            "enabled": false,
+            "keybind": 54,
+            "Rainbow outlines": true,
+            "Remove player model": true,
+            "Remove watermark": true,
+            "Translucent background": true
+        },
+        {
+            "name": "Settings",
+            "enabled": false,
+            "keybind": 0,
+            "Set axe as weapon": false,
+            "Set rod as weapon": false,
+            "Set stick as weapon": false,
+            "Middle click friends": false,
+            "Rotate body": true,
+            "Movement fix": false,
+            "Random yaw factor": 0.0,
+            "Send message on enable": true,
+            "Offset": 0.5,
+            "Time multiplier": 0.5
+        },
+        {
+            "name": "sc-AirVelo",
+            "enabled": false,
+            "keybind": 0,
+            "Air 00": true
+        },
+        {
+            "name": "sc-AntiVoid",
+            "enabled": true,
+            "keybind": 0,
+            "Mode": 0.0,
+            "Blink distance": 7.0,
+            "FB check": true
+        },
+        {
+            "name": "sc-AutoChest",
+            "enabled": false,
+            "keybind": 0,
+            "Deposit bind": 0.0,
+            "Retrieve bind": 0.0,
+            "Deposit delay": 100.0,
+            "Automatic": false
+        },
+        {
+            "name": "sc-BlinkNoFall",
+            "enabled": true,
+            "keybind": 0
+        },
+        {
+            "name": "sc-Client",
+            "enabled": true,
+            "keybind": 0,
+            "Air strafe": false,
+            "Air strafe speed": 1.2,
+            "Air strafe ticks": 11.0,
+            "BedAura whitelist": true,
+            "Damage boost": true,
+            "Fast Scaffold": true,
+            "FB-Jump fix": true,
+            "Fences": false,
+            "InvMove fix": true,
+            "Safewalk fix": true,
+            "Saturation": true,
+            "Theme sync": true,
+            "Debug messages": false
+        },
+        {
+            "name": "sc-SyutoSpeed",
+            "enabled": false,
+            "keybind": 0,
+            "AirStrafe": false,
+            "AirStrafeSpeed": 1.2,
+            "AirStrafeTicks": 11.0
+        }
+    ]
+}
