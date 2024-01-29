@@ -51,3 +51,5 @@ Color blendColors(Color color1, Color color2, double ratio) {
 int clamp(int val, int min, int max) {
     return Math.max(min, Math.min(max, val));
 }
+
+// by mic and yogi
