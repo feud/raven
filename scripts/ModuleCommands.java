@@ -318,7 +318,7 @@ void onLoad() {
     values.put("fast", 0d);
     values.put("ground", 1d);
     values.put("damage", 2d);
-    value.put("Bhop", values);
+    value.put("Mode", values);
     valuesList.put("Bhop", value);
     
     settings = new HashMap<>();
@@ -348,7 +348,7 @@ void onLoad() {
     values.put("1", 0d); // add names?
     values.put("2", 1d); // add names?
     values.put("3", 2d); // add names?
-    value.put("Fly", values);
+    value.put("Value", values);
     valuesList.put("Fly", value);
     
     settings = new HashMap<>();
@@ -370,7 +370,7 @@ void onLoad() {
     values = new HashMap<>();
     values.put("1", 0d); // add names
     values.put("auto-fireball", 1d); // add names
-    value.put("Long Jump", values);
+    value.put("Mode", values);
     valuesList.put("Long Jump", value);
     
     settings = new HashMap<>();
@@ -385,7 +385,7 @@ void onLoad() {
     values = new HashMap<>();
     values.put("vanilla", 0d);
     values.put("bleh", 1d); // add names
-    value.put("NoSlow", values);
+    value.put("Mode", values);
     valuesList.put("NoSlow", value);
     
     settings = new HashMap<>();
@@ -420,4 +420,246 @@ void onLoad() {
     settings.put("send-message", "Send message");
     settings.put("send-packets", "Send packets");
     settingsList.put("VClip", settings);
+    
+    // player 
+    
+    settings = new HashMap<>();
+    settings.put("afk", "AFK");
+    settings.put("jump", "Jump");
+    settings.put("jump-only-when-collided", "Jump only when collided");
+    settings.put("random-clicks", "Random clicks");
+    settings.put("swap-item", "Swap item");
+    settings.put("spin", "Spin");
+    settings.put("randomize-delta", "Randomize delta");
+    settings.put("randomize-pitch", "Randomize pitch");
+    settings.put("minimum-delay-ticks", "Minimum delay ticks");
+    settings.put("maximum-delay-ticks", "Maximum delay ticks");
+    settingsList.put("AntiAFK", settings);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("1", 0d);
+    values.put("2", 1d); // add names
+    value.put("AFK", values);
+    valuesList.put("AntiAFK", value);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("1", 0d);
+    values.put("2", 1d); // add names
+    value.put("Spin", values);
+    valuesList.put("AntiAFK", value);
+    
+    settings = new HashMap<>();
+    settings.put("fov", "FOV");
+    settings.put("range", "Range");
+    settings.put("disable-while-flying", "Disable while flying");
+    settings.put("rotate-with-blocks", "Rotate with blocks");
+    settings.put("rotate-with-projectiles", "Rotate with projectiles");
+    settingsList.put("AntiFireball", settings);
+    
+    settings = new HashMap<>();
+    settings.put("cancel-when-shifting", "Cancel when shifting");
+    settingsList.put("AutoJump", settings);
+    
+    settings = new HashMap<>();
+    settings.put("frame-delay", "Frame delay");
+    settings.put("min-place-delay", "Min place delay");
+    settings.put("min-post-delay", "Min post delay");
+    settings.put("motion", "Motion");
+    settings.put("disable-left", "Disable left");
+    settings.put("hold-right", "Hold right");
+    settings.put("fast-place-on-jump", "Fast place on jump");
+    settings.put("pitch-check", "Pitch check");
+    settingsList.put("AutoPlace", settings);
+    
+    settings = new HashMap<>();
+    settings.put("only-same-type", "Only same type");
+    settings.put("swap-to-greater-stack", "Swap to greater stack");
+    settingsList.put("AutoSwap", settings);
+    
+    settings = new HashMap<>();
+    settings.put("hover-delay", "Hover delay");
+    settings.put("disable-while-right-click", "Disable while right click");
+    settings.put("require-mouse-down", "Require mouse down");
+    settings.put("swap-to-previous-slot", "Swap to previous slot");
+    settingsList.put("AutoTool", settings);
+    
+    settings = new HashMap<>();
+    settings.put("break-mode", "Break mode");
+    settings.put("fov", "FOV");
+    settings.put("range", "Range");
+    settings.put("rate", "Rate");
+    settings.put("allow-autoblock", "Allow autoblock");
+    settings.put("allow-killaura", "Allow killaura");
+    settings.put("break-block-above", "Break block above");
+    settings.put("ground-spoof", "Ground spoof");
+    settings.put("only-while-visible", "Only while visible");
+    settings.put("render-block-outline", "Render block outline");
+    settings.put("silent-swing", "Silent swing");
+    settingsList.put("BedAura", settings);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("legit", 0d);
+    values.put("2", 1d); // add names
+    value.put("Break mode", values);
+    valuesList.put("BedAura", value);
+    
+    settings = new HashMap<>();
+    settings.put("show-initial-position", "Show initial position");
+    settingsList.put("Blink", settings);
+    
+    settings = new HashMap<>();
+    settings.put("1.7-hitreg", "1.7 hitreg");
+    settings.put("remove-jump-ticks", "Remove jump ticks");
+    settingsList.put("Delay Remover", settings);
+    
+    settings = new HashMap<>();
+    settings.put("packet-delay", "Packet delay");
+    settings.put("cancel-serverbound", "Cancel serverbound");
+    settings.put("test", "Test");
+    settingsList.put("Fake Lag", settings);
+    
+    settings = new HashMap<>();
+    settings.put("break-delay-ticks", "Break delay ticks");
+    settings.put("break-speed-multiplier", "Break speed multiplier");
+    settings.put("mode", "Mode");
+    settingsList.put("FastMine", settings);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("1", 0d);
+    values.put("2", 1d); // add names
+    value.put("Mode", values);
+    valuesList.put("FastMine", value);
+    
+    settings = new HashMap<>();
+    settings.put("tick-delay", "Tick delay");
+    settings.put("blocks-only", "Blocks only");
+    settings.put("pitch-check", "Pitch check");
+    settingsList.put("FastPlace", settings);
+    
+    settings = new HashMap<>();
+    settings.put("mode", "Mode");
+    settings.put("speed", "Speed");
+    settings.put("allow-chatting", "Allow chatting");
+    settings.put("allow-digging", "Allow digging");
+    settings.put("allow-interacting", "Allow interacting");
+    settings.put("allow-placing", "Allow placing");
+    settings.put("disable-on-damage", "Disable on damage");
+    settings.put("show-arm", "Show arm");
+    settingsList.put("Freecam", settings);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("1", 0d);
+    values.put("2", 1d); // add names
+    value.put("Mode", values);
+    valuesList.put("Freecam", value);
+    
+    settings = new HashMap<>();
+    settings.put("auto-armor", "Auto armor");
+    settings.put("auto-armor-delay", "Auto armor delay");
+    settings.put("auto-sort", "Auto sort");
+    settings.put("sort-delay", "Sort delay");
+    settings.put("steal-chests", "Steal chests");
+    settings.put("custom-chest", "Custom chest");
+    settings.put("close-after-stealing", "Close after stealing");
+    settings.put("stealer-delay", "Stealer delay");
+    settings.put("inventory-cleaner", "Inventory cleaner");
+    settings.put("middle-click-to-clean", "Middle click to clean");
+    settings.put("cleaner-delay", "Cleaner delay");
+    settings.put("sword-slot", "Sword slot");
+    settings.put("blocks-slot", "Blocks slot");
+    settings.put("golden-apple-slot", "Golden apple slot");
+    settings.put("projectile-slot", "Projectile slot");
+    settings.put("speed-potion-slot", "Speed potion slot");
+    settings.put("pearl-slot", "Pearl slot");
+    settingsList.put("InvManager", settings);
+        
+    settings = new HashMap<>();
+    settings.put("mode", "Mode");
+    settings.put("minimum-fall-distance", "Minimum fall distance");
+    settings.put("ignore-void", "Ignore void");
+    settingsList.put("NoFall", settings);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("1", 0d);// add names
+    values.put("single", 1d);
+    values.put("extra", 2d);
+    value.put("Mode", values);
+    valuesList.put("NoFall", value);
+    
+    settings = new HashMap<>();
+    settings.put("delay-until-next-shift", "Delay until next shift");
+    settings.put("blocks-only", "Blocks only");
+    settings.put("disable-on-forward", "Disable on forward");
+    settings.put("pitch-check", "Pitch check");
+    settings.put("shift", "Shift");
+    settings.put("tower", "Tower");
+    settingsList.put("Safewalk", settings);
+    
+    settings = new HashMap<>();
+    settings.put("motion", "Motion");
+    settings.put("rotation", "Rotation");
+    settings.put("fast-scaffold", "Fast scaffold");
+    settings.put("precision", "Precision");
+    settings.put("autoswap", "AutoSwap");
+    settings.put("highlight-blocks", "Highlight blocks");
+    settings.put("multi-place", "Multi-place");
+    settings.put("safewalk", "Safewalk");
+    settings.put("show-block-count", "Show block count");
+    settings.put("silent-swing", "Silent swing");
+    settings.put("tower", "Tower");
+    settingsList.put("Scaffold", settings);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("simple", 0d);
+    values.put("strict", 1d);
+    values.put("lazy", 2d);
+    value.put("Rotation", values);
+    valuesList.put("Scaffold", value);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("disabled", 0d);
+    values.put("vanilla", 1d);
+    values.put("border", 2d);
+    value.put("Fast scaffold", values);
+    valuesList.put("Scaffold", value);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("low", 0d);
+    values.put("medium", 1d);
+    values.put("high", 2d);
+    values.put("very high", 3d);
+    value.put("Precision", values);
+    valuesList.put("Scaffold", value);
+    
+    settings = new HashMap<>();
+    settings.put("mode", "Mode");
+    settings.put("ground-ticks", "Ground ticks");
+    settings.put("speed", "Speed");
+    settings.put("diagonal-speed", "Diagonal speed");
+    settings.put("slowed-speed", "Slowed speed");
+    settings.put("slowed-ticks", "Slowed ticks");
+    settings.put("disable-while-hurt", "Disable while hurt");
+    settingsList.put("Tower", settings);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("normal", 0d);
+    values.put("vanlla", 1d);
+    value.put("Mode", values);
+    valuesList.put("Tower", value);
+    
+    settings = new HashMap<>();
+    settings.put("pickup-water", "Pickup water");
+    settings.put("silent-aim", "Silent aim");
+    settings.put("switch-to-item", "Switch to item");
+    settingsList.put("Water Bucket", settings);
 }
