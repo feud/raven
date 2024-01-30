@@ -833,4 +833,54 @@ void onLoad() {
     valuesList.put("BedESP", value);
     valuesList.put("TargetHUD", value);
     valuesList.put("HUD", value);
+    
+    // minigames 
+    
+    settings = new HashMap<>();
+    settings.put("artificial", "Artificial");
+    settings.put("hide-message", "Hide message");
+    settings.put("remove-bots", "Remove bots");
+    settingsList.put("AutoWho", settings);
+    
+    settings = new HashMap<>();
+    settings.put("obsidian-esp", "Obsidian ESP");
+    settings.put("whitelist-own-bed", "Whitelist own bed");
+    settings.put("diamond-armor", "Diamond armor");
+    settings.put("invisible-players", "Invisible players");
+    settings.put("obsidian-on-bed", "Obsidian on bed");
+    settings.put("ender-pearl", "Ender pearl");
+    settings.put("should-ping", "Should ping");
+    settingsList.put("Bedwars Helper", settings);
+    
+    settings = new HashMap<>();
+    settings.put("mode", "Mode"); // add value
+    settings.put("send-on-join", "Send on join");
+    settings.put("threat-level", "Threat level");
+    settingsList.put("Duels Stats", settings);
+    
+    settings = new HashMap<>();
+    settings.put("alert", "Alert");
+    settings.put("search-detectives", "Search detectives");
+    settings.put("announce-murderer", "Announce murderer");
+    settings.put("gold-esp", "Gold ESP");
+    settingsList.put("Murder Mystery", settings);
+    
+    settings = new HashMap<>();
+    settings.put("fence-height", "Fence height");
+    settings.put("block-type", "Block type"); // add value
+    settingsList.put("Sumo Fences", settings);
+    
+    settings = new HashMap<>();
+    settings.put("break-speed", "Break speed");
+    settings.put("delay-after-breaking", "Delay after breaking");
+    settings.put("delay-after-placing", "Delay after placing");
+    settings.put("range", "Range");
+    settings.put("only-visible", "Only visible");
+    settings.put("only-while-middle-clicking", "Only while middle clicking");
+    settingsList.put("WoolWars", settings);
+    
+    settings = new HashMap<>();
+    settings.put("aimbot", "Aimbot");
+    settings.put("hitbox-esp", "Hitbox ESP");
+    settingsList.put("Quakecraft", settings);
 }
