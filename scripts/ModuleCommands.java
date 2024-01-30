@@ -883,4 +883,76 @@ void onLoad() {
     settings.put("aimbot", "Aimbot");
     settings.put("hitbox-esp", "Hitbox ESP");
     settingsList.put("Quakecraft", settings);
+    
+    // fun
+    
+    settings = new HashMap<>();
+    settings.put("level", "Level");
+    settingsList.put("Extra bobbing", settings);
+    
+    settings = new HashMap<>();
+    settings.put("range", "Range");
+    settings.put("aim", "Aim");
+    settings.put("play-sound", "Play sound");
+    settings.put("players-only", "Players only");
+    settingsList.put("SlyPort", settings);
+    
+    settings = new HashMap<>();
+    settings.put("rotation-yaw", "Rotation yaw");
+    settings.put("speed", "Speed");
+    settingsList.put("Spin", settings);
+    
+    // other
+    
+    settings = new HashMap<>();
+    settings.put("flag-interval", "Flag interval");
+    settings.put("add-cheaters-as-enemy", "Add cheaters as enemy");
+    settings.put("ignore-teammates", "Ignore teammates");
+    settings.put("only-atlas-suspect", "Only atlas suspect");
+    settings.put("should-ping", "Should ping");
+    settings.put("autoblock", "AutoBlock");
+    settings.put("noslow", "NoSlow");
+    settings.put("nuker", "Nuker");
+    settings.put("scaffold", "Scaffold");
+    settings.put("aimassist", "AimAssist");
+    settings.put("autoclicker", "AutoClicker");
+    settings.put("fastmine", "FastMine");
+    settings.put("legit-scaffold", "Legit Scaffold");
+    settings.put("protocol", "Protocol");
+    settingsList.put("Anticheat", settings);
+    
+    settings = new HashMap<>();
+    settings.put("alert-interval", "Alert interval");
+    settings.put("high-latency", "High latency");
+    settingsList.put("Latency Alerts", settings);
+    
+    settings = new HashMap<>();
+    settings.put("hide-all-names", "Hide all names");
+    settingsList.put("Name Hider", settings);
+    
+    // client
+    
+    settings = new HashMap<>();
+    settings.put("animate", "Animate");
+    settingsList.put("Command Line", settings);
+    
+    settings = new HashMap<>();
+    settings.put("rainbow-outlines", "Rainbow outlines");
+    settings.put("remove-player-model", "Remove player model");
+    settings.put("remove-watermark", "Remove watermark");
+    settings.put("translucent-background", "Translucent background");
+    settingsList.put("Gui", settings);
+    
+    settings = new HashMap<>();
+    settings.put("set-axe-as-weapon", "Set axe as weapon");
+    settings.put("set-rod-as-weapon", "Set rod as weapon");
+    settings.put("set-stick-as-weapon", "Set stick as weapon");
+    settings.put("middle-click-friends", "Middle click friends");
+    settings.put("rotate-body", "Rotate body");
+    settings.put("movement-fix", "Movement fix");
+    settings.put("random-yaw-factor", "Random yaw factor");
+    settings.put("send-message-on-enable", "Send message on enable");
+    settings.put("offset", "Offset");
+    settings.put("time-multiplier", "Time multiplier");
+    settingsList.put("Settings", settings);
 }
