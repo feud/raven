@@ -662,4 +662,175 @@ void onLoad() {
     settings.put("silent-aim", "Silent aim");
     settings.put("switch-to-item", "Switch to item");
     settingsList.put("Water Bucket", settings);
+    
+    // world
+    
+    settings = new HashMap<>();
+    settings.put("entity-spawn-delay", "Entity spawn delay");
+    settings.put("delay", "Delay");
+    settings.put("pit-spawn-check", "Pit spawn check");
+    settings.put("tab-list", "Tab list");
+    settingsList.put("AntiBot", settings);
+    
+    // render
+    
+    settings = new HashMap<>();
+    settings.put("theme", "Theme");
+    settings.put("range", "Range");
+    settings.put("rate", "Rate");
+    settings.put("only-render-first-bed", "Only render first bed");
+    settingsList.put("BedESP", settings);
+    
+    settings = new HashMap<>();
+    settings.put("mode", "Mode");
+    settings.put("show-manual", "Show Manual");
+    settings.put("show-bedaura", "Show BedAura");
+    settingsList.put("BreakProgress", settings); // ADD STUFF HERE TOO
+    
+    settings = new HashMap<>();
+    settings.put("ignore-bots", "Ignore bots");
+    settingsList.put("Chams", settings);
+    
+    settings = new HashMap<>();
+    settings.put("red", "Red");
+    settings.put("green", "Green");
+    settings.put("blue", "Blue");
+    settings.put("rainbow", "Rainbow");
+    settings.put("outline", "Outline");
+    settings.put("shade", "Shade");
+    settings.put("disable-if-opened", "Disable if opened");
+    settingsList.put("ChestESP", settings);
+    
+    settings = new HashMap<>();
+    settings.put("render-arrows", "Render arrows");
+    settings.put("render-ender-pearls", "Render ender pearls");
+    settings.put("render-fireballs", "Render fireballs");
+    settings.put("arrow", "Arrow"); // add value
+    settings.put("circle-radius", "Circle radius"); // add value?
+    settings.put("item-colors", "Item colors");
+    settings.put("render-item", "Render item");
+    settings.put("render-only-threats", "Render only threats");
+    settings.put("show-in-chat", "Show in chat");
+    settingsList.put("Indicators", settings);
+    
+    settings = new HashMap<>();
+    settings.put("disable-iron", "Disable iron");
+    settingsList.put("ItemESP", settings);
+    
+    settings = new HashMap<>();
+    settings.put("blaze", "Blaze");
+    settings.put("creeper", "Creeper");
+    settings.put("enderman", "Enderman");
+    settings.put("ghast", "Ghast");
+    settings.put("silverfish", "Silverfish");
+    settings.put("skeleton", "Skeleton");
+    settings.put("slime", "Slime");
+    settings.put("spider", "Spider");
+    settings.put("zombie", "Zombie");
+    settings.put("zombie-pigman", "Zombie Pigman");
+    settingsList.put("MobESP", settings);
+    
+    settings = new HashMap<>();
+    settings.put("y-offset", "Y-Offset");
+    settings.put("scale", "Scale");
+    settings.put("auto-scale", "Auto-scale");
+    settings.put("draw-rect", "Draw rect");
+    settings.put("show-health", "Show health");
+    settings.put("show-hits-to-kill", "Show hits to kill");
+    settings.put("show-invis", "Show invis");
+    settings.put("remove-tags", "Remove tags");
+    settings.put("render-friends", "Render friends"); // could be "Render friends (green)"
+    settings.put("render-enemies", "Render enemies"); // could be "Render enemies (red)"
+    settingsList.put("Nametags", settings);
+    
+    settings = new HashMap<>();
+    settings.put("red", "Red");
+    settings.put("green", "Green");
+    settings.put("blue", "Blue");
+    settings.put("rainbow", "Rainbow");
+    settings.put("2d", "2D");
+    settings.put("arrow", "Arrow");
+    settings.put("box", "Box");
+    settings.put("health", "Health");
+    settings.put("ring", "Ring");
+    settings.put("shaded", "Shaded");
+    settings.put("expand", "Expand");
+    settings.put("x-shift", "X-Shift");
+    settings.put("red-on-damage", "Red on damage");
+    settings.put("show-invis", "Show invis");
+    settingsList.put("PlayerESP", settings);
+    
+    settings = new HashMap<>();
+    settings.put("show-in-gui", "Show in GUI");
+    settings.put("show-tracer-lines", "Show tracer lines");
+    settingsList.put("Radar", settings);
+    
+    settings = new HashMap<>();
+    settings.put("shader", "Shader"); // add value
+    settingsList.put("Shaders", settings);
+    
+    settings = new HashMap<>();
+    settings.put("theme", "Theme");
+    settings.put("render-esp", "Render ESP");
+    settings.put("show-win-or-loss", "Show win or loss");
+    settingsList.put("TargetHUD", settings);
+    
+    settings = new HashMap<>();
+    settings.put("show-invis", "Show invis");
+    settings.put("line-width", "Line Width");
+    settings.put("red", "Red");
+    settings.put("green", "Green");
+    settings.put("blue", "Blue");
+    settings.put("rainbow", "Rainbow");
+    settingsList.put("Tracers", settings);
+    
+    settings = new HashMap<>();
+    settings.put("auto-scale", "Auto-scale");
+    settings.put("disable-uncharged-bow", "Disable uncharged bow");
+    settings.put("highlight-on-entity", "Highlight on entity");
+    settings.put("shorten-line", "Shorten line");
+    settingsList.put("Trajectories", settings);
+    
+    settings = new HashMap<>();
+    settings.put("theme", "Theme");
+    settings.put("align-right", "Align right");
+    settings.put("alphabetical-sort", "Alphabetical sort");
+    settings.put("drop-shadow", "Drop shadow");
+    settings.put("lowercase", "Lowercase");
+    settings.put("remove-closet-modules", "Remove closet modules");
+    settings.put("remove-render-modules", "Remove render modules");
+    settings.put("remove-scripts", "Remove scripts");
+    settings.put("show-module-info", "Show module info");
+    settingsList.put("HUD", settings);
+    
+    settings = new HashMap<>();
+    settings.put("range", "Range");
+    settings.put("rate", "Rate");
+    settings.put("coal", "Coal");
+    settings.put("diamond", "Diamond");
+    settings.put("emerald", "Emerald");
+    settings.put("gold", "Gold");
+    settings.put("iron", "Iron");
+    settings.put("lapis", "Lapis");
+    settings.put("obsidian", "Obsidian");
+    settings.put("redstone", "Redstone");
+    settings.put("spawner", "Spawner");
+    settingsList.put("Xray", settings);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("rainbow", 0d);
+    values.put("cherry", 1d);
+    values.put("cotton-candy", 2d);
+    values.put("flare", 3d);
+    values.put("flower", 4d);
+    values.put("gold", 5d);
+    values.put("grayscale", 6d);
+    values.put("royal", 7d);
+    values.put("sky", 8d);
+    values.put("vine", 9d);
+    value.put("Theme", values);
+    valuesList.put("BedESP", value);
+    valuesList.put("TargetHUD", value);
+    valuesList.put("HUD", value);
 }
