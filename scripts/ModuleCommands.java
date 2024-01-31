@@ -54,8 +54,17 @@ boolean onPacketSent(CPacket packet) {
                 for (Map.Entry<String, String> entry : list) {
                     double valueSlider = modules.getSlider(module, entry.getValue());
                     String valueButton = Boolean.toString(modules.getButton(module, entry.getValue()));
-                    String value;
+                    String value = "";
+
                     if (valueButton.equals("true")) value = client.colorSymbol + "atrue";
+                    else if (valuesList.get(module).get(entry.getValue()) != null) {
+                        for (Map.Entry<String, Double> entry2 : valuesList.get(module).get(entry.getValue()).entrySet()) {
+                            if (entry2.getValue() == valueSlider) {
+                                value = client.colorSymbol + "e" + entry2.getKey();
+                                break;
+                            }
+                        }
+                    }
                     else if (valueSlider == 0 && valueButton.equals("false")) value = client.colorSymbol + "cfalse";
                     else value = client.colorSymbol + "e" + String.valueOf(valueSlider);
                     client.print(chatPrefix + client.colorSymbol + "7" + entry.getKey() + client.colorSymbol + "7: " + value);
