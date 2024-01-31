@@ -2,7 +2,7 @@ Map<String, String> moduleList = new HashMap<>();
 Map<String, Map<String, String>> settingsList = new HashMap<>();
 Map<String, Map<String, Map<String, Double>>> valuesList = new HashMap<>();
 
-String chatPrefix = client.colorSymbol + "7[" + client.colorSymbol + "dR" + client.colorSymbol + "7]" + client.colorSymbol + "r ";
+String chatPrefix = chatColor('7') + "[" + chatColor('d') + "R" + chatColor('7') + "]" + chatColor('r') + " ";
 
 boolean onPacketSent(CPacket packet) {
     if (!(packet instanceof C01)) return true;
@@ -24,10 +24,10 @@ boolean onPacketSent(CPacket packet) {
         boolean enabled = modules.isEnabled(module);
         if (enabled) {
             modules.disable(module);
-            client.print(chatPrefix + client.colorSymbol + "7Disabled " + client.colorSymbol + "c" + module);
+            client.print(chatPrefix + chatColor('7') + "Disabled " + chatColor('c') + module);
         } else {
             modules.enable(module);
-            client.print(chatPrefix + client.colorSymbol + "7Enabled " + client.colorSymbol + "a" + module);
+            client.print(chatPrefix + chatColor('7') + "Enabled " + chatColor('a') + module);
         }
         return false;
     }
@@ -35,6 +35,7 @@ boolean onPacketSent(CPacket packet) {
     if (parts.length == 2) {
         String command = parts[1];
         switch (command) {
+            case "list":
             case "help":
                 Map<String, String> settings = settingsList.get(module);
                 if (settings == null) return false;
@@ -51,23 +52,32 @@ boolean onPacketSent(CPacket packet) {
                     }
                 }
 
+                client.print(chatPrefix + chatColor('b') + module + chatColor('7') + " modules:");
+
                 for (Map.Entry<String, String> entry : list) {
                     double valueSlider = modules.getSlider(module, entry.getValue());
                     String valueButton = Boolean.toString(modules.getButton(module, entry.getValue()));
                     String value = "";
 
-                    if (valueButton.equals("true")) value = client.colorSymbol + "atrue";
-                    else if (valuesList.get(module).get(entry.getValue()) != null) {
+                    if (valueButton.equals("true")) {
+                        value = chatColor('a') + "true";
+                    }
+                    else if (valuesList.get(module) != null && valuesList.get(module).get(entry.getValue()) != null) {
                         for (Map.Entry<String, Double> entry2 : valuesList.get(module).get(entry.getValue()).entrySet()) {
                             if (entry2.getValue() == valueSlider) {
-                                value = client.colorSymbol + "e" + entry2.getKey();
+                                value = chatColor('e') + entry2.getKey();
                                 break;
                             }
                         }
                     }
-                    else if (valueSlider == 0 && valueButton.equals("false")) value = client.colorSymbol + "cfalse";
-                    else value = client.colorSymbol + "e" + String.valueOf(valueSlider);
-                    client.print(chatPrefix + client.colorSymbol + "7" + entry.getKey() + client.colorSymbol + "7: " + value);
+                    else if (valueSlider == 0 && valueButton.equals("false")) {
+                        value = chatColor('c') + "false";
+                    }
+                    else {
+                        value = chatColor('e') + String.valueOf(valueSlider);
+                    }
+
+                    client.print(chatPrefix + chatColor('7') + entry.getKey() + chatColor('7') + ": " + value);
                 }
                 break;
         }
@@ -82,18 +92,18 @@ boolean onPacketSent(CPacket packet) {
              if (value.equalsIgnoreCase("true") || value.equalsIgnoreCase("false")) {
                 boolean valueBool = Boolean.parseBoolean(value);
                 modules.setButton(module, setting, valueBool);
-                String boolString = valueBool == true ? client.colorSymbol + "atrue" : client.colorSymbol + "cfalse";
-                client.print(chatPrefix + client.colorSymbol + "7Set " + parts[1] + client.colorSymbol + "7 to " + boolString);
+                String boolString = valueBool == true ? chatColor('a') + "true" : chatColor('c') + "false";
+                client.print(chatPrefix + chatColor('7') + "Set " + parts[1] + chatColor('7') + " to " + boolString);
             } else {
                 double valueDouble = Double.parseDouble(value);
                 modules.setSlider(module, setting, valueDouble);
-                client.print(chatPrefix + client.colorSymbol + "7Set " + parts[1] + client.colorSymbol + "7 to " + client.colorSymbol + "e" + valueDouble);
+                client.print(chatPrefix + chatColor('7') + "Set " + parts[1] + chatColor('7') + " to " + chatColor('e') + valueDouble);
             }
         } catch (NumberFormatException e) {
             Double listValue = valuesList.get(module).get(setting).get(value);
             if (listValue == null) return false;
             modules.setSlider(module, setting, listValue);
-            client.print(chatPrefix + client.colorSymbol + "7Set " + parts[1] + client.colorSymbol + "7 to " + client.colorSymbol + "e" + value);
+            client.print(chatPrefix + chatColor('7') + "Set " + parts[1] + chatColor('7') + " to " + chatColor('e') + value);
             return false;
         }
     }
@@ -101,7 +111,13 @@ boolean onPacketSent(CPacket packet) {
     return false;
 }
 
+String chatColor(char color) {
+    return client.colorSymbol + color;
+}
+
 void onLoad() {
+    modules.registerSlider("Credit", 0, new String[]{"pug", "mic"});
+
     moduleList.put("autoclicker", "AutoClicker");
     moduleList.put("aimassist", "AimAssist");
     moduleList.put("antiknockback", "AntiKnockback");
@@ -256,7 +272,7 @@ void onLoad() {
     settings.put("rotation-smoothing", "Rotation smoothing");
     settings.put("sort-mode", "Sort mode");
     settings.put("switch-delay", "Switch delay");
-    settings.put("targets", "Targets"); // suffix maybe idk miight need to add (max)
+    settings.put("targets", "Targets (max)");
     settings.put("aim-invis", "Aim invis");
     settings.put("disable-in-inventory", "Disable in inventory");
     settings.put("disable-while-blocking", "Disable while blocking");
@@ -364,7 +380,7 @@ void onLoad() {
 
     value = new HashMap<>();
     values = new HashMap<>();
-    values.put("1", 0d); // Add mode names
+    values.put("1", 0d);
     values.put("2", 1d);
     values.put("3", 2d);
     value.put("Value", values);
@@ -387,14 +403,14 @@ void onLoad() {
 
     value = new HashMap<>();
     values = new HashMap<>();
-    values.put("1", 0d); // Add mode names
+    values.put("vanilla", 0d);
     values.put("auto-fireball", 1d);
     value.put("Mode", values);
     valuesList.put("Long Jump", value);
 
     settings = new HashMap<>();
     settings.put("mode", "Mode");
-    settings.put("slow", "Slow"); // Will possibly need a % at the end.
+    settings.put("slow", "Slow %");
     settings.put("disable-bow", "Disable bow");
     settings.put("sword-only", "Sword only");
     settings.put("vanilla-sword", "Vanilla sword");
@@ -402,8 +418,10 @@ void onLoad() {
 
     value = new HashMap<>();
     values = new HashMap<>();
-    values.put("vanilla", 0d); // Add mode names
-    values.put("bleh", 1d);
+    values.put("vanilla", 0d);
+    values.put("interact", 1d);
+    values.put("sneak", 2d);
+    values.put("alpha", 3d);
     value.put("Mode", values);
     valuesList.put("NoSlow", value);
 
@@ -455,15 +473,20 @@ void onLoad() {
 
     value = new HashMap<>();
     values = new HashMap<>();
-    values.put("1", 0d); // Add mode names
-    values.put("2", 1d);
+    values.put("none", 0d);
+    values.put("shuffle", 1d);
+    values.put("forward", 2d);
+    values.put("backward", 3d);
+    values.put("wander", 4d);
     value.put("AFK", values);
     valuesList.put("AntiAFK", value);
 
     value = new HashMap<>();
     values = new HashMap<>();
-    values.put("1", 0d); // Add mode names
-    values.put("2", 1d);
+    values.put("none", 0d);
+    values.put("random", 1d);
+    values.put("right", 2d);
+    values.put("left", 3d);
     value.put("Spin", values);
     valuesList.put("AntiAFK", value);
 
@@ -519,7 +542,9 @@ void onLoad() {
     value = new HashMap<>();
     values = new HashMap<>();
     values.put("legit", 0d);
-    values.put("2", 1d); // add names
+    values.put("instant", 1d);
+    values.put("swap", 2d);
+    values.put("spam", 3d);
     value.put("Break mode", values);
     valuesList.put("BedAura", value);
 
@@ -546,8 +571,9 @@ void onLoad() {
 
     value = new HashMap<>();
     values = new HashMap<>();
-    values.put("1", 0d); // Add mode names
-    values.put("2", 1d);
+    values.put("pre", 0d);
+    values.put("post", 1d);
+    values.put("increment", 2d);
     value.put("Mode", values);
     valuesList.put("FastMine", value);
 
@@ -570,8 +596,8 @@ void onLoad() {
 
     value = new HashMap<>();
     values = new HashMap<>();
-    values.put("1", 0d); // Add mode names
-    values.put("2", 1d);
+    values.put("spoof", 0d);
+    values.put("freeze", 1d);
     value.put("Mode", values);
     valuesList.put("Freecam", value);
 
@@ -603,9 +629,11 @@ void onLoad() {
 
     value = new HashMap<>();
     values = new HashMap<>();
-    values.put("1", 0d); // Add mode names
+    values.put("spoof", 0d);
     values.put("single", 1d);
     values.put("extra", 2d);
+    values.put("precision", 3d);
+    values.put("position", 4d);
     value.put("Mode", values);
     valuesList.put("NoFall", value);
 
@@ -653,7 +681,7 @@ void onLoad() {
     values.put("low", 0d);
     values.put("medium", 1d);
     values.put("high", 2d);
-    values.put("very high", 3d);
+    values.put("very-high", 3d);
     value.put("Precision", values);
     valuesList.put("Scaffold", value);
 
@@ -670,7 +698,7 @@ void onLoad() {
     value = new HashMap<>();
     values = new HashMap<>();
     values.put("normal", 0d);
-    values.put("vanlla", 1d);
+    values.put("vanilla", 1d);
     value.put("Mode", values);
     valuesList.put("Tower", value);
 
@@ -695,10 +723,18 @@ void onLoad() {
     settingsList.put("BedESP", settings);
 
     settings = new HashMap<>();
-    settings.put("mode", "Mode"); // Add mode names
+    settings.put("mode", "Mode");
     settings.put("show-manual", "Show Manual");
     settings.put("show-bedaura", "Show BedAura");
     settingsList.put("BreakProgress", settings);
+
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("percentage", 0d);
+    values.put("seconds", 1d);
+    values.put("raw", 2d);
+    value.put("Mode", values);
+    valuesList.put("BreakProgress", value);
 
     settings = new HashMap<>();
     settings.put("ignore-bots", "Ignore bots");
@@ -718,13 +754,21 @@ void onLoad() {
     settings.put("render-arrows", "Render arrows");
     settings.put("render-ender-pearls", "Render ender pearls");
     settings.put("render-fireballs", "Render fireballs");
-    settings.put("arrow", "Arrow"); // add value
-    settings.put("circle-radius", "Circle radius"); // add value?
+    settings.put("arrow", "Arrow");
+    settings.put("circle-radius", "Circle radius");
     settings.put("item-colors", "Item colors");
     settings.put("render-item", "Render item");
     settings.put("render-only-threats", "Render only threats");
     settings.put("show-in-chat", "Show in chat");
     settingsList.put("Indicators", settings);
+
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("caret", 0d);
+    values.put("greater-than", 1d);
+    values.put("triangle", 2d);
+    value.put("Arrow", values);
+    valuesList.put("Indicators", value);
 
     settings = new HashMap<>();
     settings.put("disable-iron", "Disable iron");
@@ -752,8 +796,8 @@ void onLoad() {
     settings.put("show-hits-to-kill", "Show hits to kill");
     settings.put("show-invis", "Show invis");
     settings.put("remove-tags", "Remove tags");
-    settings.put("render-friends", "Render friends"); // Could be "Render friends (green)"
-    settings.put("render-enemies", "Render enemies"); // Could be "Render enemies (red)"
+    settings.put("render-friends", "Render friends");
+    settings.put("render-enemies", "Render enemies");
     settingsList.put("Nametags", settings);
 
     settings = new HashMap<>();
@@ -779,7 +823,34 @@ void onLoad() {
     settingsList.put("Radar", settings);
 
     settings = new HashMap<>();
-    settings.put("shader", "Shader"); // Add mode names
+    settings.put("shader", "Shader");
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("notch", 0d);
+    values.put("fxaa", 1d);
+    values.put("art", 2d);
+    values.put("bumpy", 3d);
+    values.put("blobs2", 4d);
+    values.put("pencil", 5d);
+    values.put("color-convolve", 6d);
+    values.put("deconverge", 7d);
+    values.put("flip", 8d);
+    values.put("invert", 9d);
+    values.put("outline", 10d);
+    values.put("phosphor", 11d);
+    values.put("scan-pincushion", 12d);
+    values.put("sobel", 13d);
+    values.put("bits", 14d);
+    values.put("desaturate", 15d);
+    values.put("green", 17d);
+    values.put("blur", 18d);
+    values.put("wobble", 19d);
+    values.put("blobs", 10d);
+    values.put("antialias", 20d);
+    values.put("creeper", 21d);
+    values.put("spider", 22d);
+    value.put("Shader", values);
+    valuesList.put("Shaders", value);
     settingsList.put("Shaders", settings);
 
     settings = new HashMap<>();
@@ -864,7 +935,7 @@ void onLoad() {
     settingsList.put("Bedwars Helper", settings);
 
     settings = new HashMap<>();
-    settings.put("mode", "Mode"); // Add mode names
+    settings.put("mode", "Mode");
     settings.put("send-on-join", "Send on join");
     settings.put("threat-level", "Threat level");
     settingsList.put("Duels Stats", settings);
@@ -878,8 +949,16 @@ void onLoad() {
 
     settings = new HashMap<>();
     settings.put("fence-height", "Fence height");
-    settings.put("block-type", "Block type"); // add value
+    settings.put("block-type", "Block type");
     settingsList.put("Sumo Fences", settings);
+    
+    value = new HashMap<>();
+    values = new HashMap<>();
+    values.put("caret", 0d);
+    values.put("greater-than", 1d);
+    values.put("triangle", 2d);
+    value.put("Arrow", values);
+    valuesList.put("Indicators", value);
 
     settings = new HashMap<>();
     settings.put("break-speed", "Break speed");
