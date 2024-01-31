@@ -1,18 +1,20 @@
-boolean speeded
+boolean speeded;
 
-if (client.isMouseDown(1) && !client.isKeyDown(57) && client.keybinds.isPressed("forward") && modules.isEnabled("Scaffold") && client.getPlayer().onGround()) {
-    client.keybinds.setPressed("use", false);
-    client.keybinds.setPressed("jump", false);
-    if (!isDiagonal() && !(client.keybinds.isPressed("right") || client.keybinds.isPressed("left"))) {
-            client.setSprinting(true);
-            client.jump();
-    } else if (isDiagonal() || (client.keybinds.isPressed("right") || client.keybinds.isPressed("left"))) {
-            client.jump();
+void onPreUpdate() {
+    if (client.isMouseDown(1) && !client.isKeyDown(57) && client.keybinds.isPressed("forward") && modules.isEnabled("Scaffold") && client.getPlayer().onGround()) {
+        client.keybinds.setPressed("use", false);
+        client.keybinds.setPressed("jump", false);
+        if (!isDiagonal() && !(client.keybinds.isPressed("right") || client.keybinds.isPressed("left"))) {
+                client.setSprinting(true);
+                client.jump();
+        } else if (isDiagonal() || (client.keybinds.isPressed("right") || client.keybinds.isPressed("left"))) {
+                client.jump();
+        }
+        speeded = true;
+    } else if (modules.isEnabled("Scaffold") && !client.isMouseDown(1) && !client.isKeyDown(57) && speeded) {
+        client.setMotion(0, client.getMotion().y, 0);
+        speeded = false;
     }
-    speeded = true;
-} else if (modules.isEnabled("Scaffold") && !client.isMouseDown(1) && !client.isKeyDown(57) && speeded) {
-    client.setMotion(0, motion.y, 0);
-    speeded = false;
 }
 
 boolean isDiagonal() {
