@@ -1,7 +1,8 @@
-String prefix = "&7[&dR&7]&r ";
 Map<String, String> moduleList = new HashMap<>();
 Map<String, Map<String, String>> settingsList = new HashMap<>();
 Map<String, Map<String, Map<String, Double>>> valuesList = new HashMap<>();
+
+String chatPrefix = client.colorSymbol + "7[" + client.colorSymbol + "dR" + client.colorSymbol + "7]" + client.colorSymbol + "r ";
 
 boolean onPacketSent(CPacket packet) {
     if (!(packet instanceof C01)) return true;
@@ -23,10 +24,10 @@ boolean onPacketSent(CPacket packet) {
         boolean enabled = modules.isEnabled(module);
         if (enabled) {
             modules.disable(module);
-            client.print(prefix + "Disabled " + module);
+            client.print(chatPrefix + client.colorSymbol + "7Disabled " + client.colorSymbol + "c" + module);
         } else {
             modules.enable(module);
-            client.print(prefix + "Enabled " + module);
+            client.print(chatPrefix + client.colorSymbol + "7Enabled " + client.colorSymbol + "a" + module);
         }
         return false;
     }
@@ -54,10 +55,10 @@ boolean onPacketSent(CPacket packet) {
                     double valueSlider = modules.getSlider(module, entry.getValue());
                     String valueButton = Boolean.toString(modules.getButton(module, entry.getValue()));
                     String value;
-                    if (valueButton.equals("true")) value = "true";
-                    else if (valueSlider == 0 && valueButton.equals("false")) value = "false";
-                    else value = String.valueOf(valueSlider);
-                    client.print(entry.getKey() + ": " + value);
+                    if (valueButton.equals("true")) value = client.colorSymbol + "atrue";
+                    else if (valueSlider == 0 && valueButton.equals("false")) value = client.colorSymbol + "cfalse";
+                    else value = client.colorSymbol + "e" + String.valueOf(valueSlider);
+                    client.print(chatPrefix + client.colorSymbol + "7" + entry.getKey() + client.colorSymbol + "7: " + value);
                 }
                 break;
         }
@@ -72,17 +73,18 @@ boolean onPacketSent(CPacket packet) {
              if (value.equalsIgnoreCase("true") || value.equalsIgnoreCase("false")) {
                 boolean valueBool = Boolean.parseBoolean(value);
                 modules.setButton(module, setting, valueBool);
-                client.print(prefix + "Set " + setting + " to " + valueBool);
+                String boolString = valueBool == true ? client.colorSymbol + "atrue" : client.colorSymbol + "cfalse";
+                client.print(chatPrefix + client.colorSymbol + "7Set " + parts[1] + client.colorSymbol + "7 to " + boolString);
             } else {
                 double valueDouble = Double.parseDouble(value);
                 modules.setSlider(module, setting, valueDouble);
-                client.print(prefix + "Set " + setting + " to " + valueDouble);
+                client.print(chatPrefix + client.colorSymbol + "7Set " + parts[1] + client.colorSymbol + "7 to " + client.colorSymbol + "e" + valueDouble);
             }
         } catch (NumberFormatException e) {
             Double listValue = valuesList.get(module).get(setting).get(value);
             if (listValue == null) return false;
             modules.setSlider(module, setting, listValue);
-            client.print(prefix + "Set " + setting + " to " + value);
+            client.print(chatPrefix + client.colorSymbol + "7Set " + parts[1] + client.colorSymbol + "7 to " + client.colorSymbol + "e" + value);
             return false;
         }
     }
