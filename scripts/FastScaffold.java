@@ -1,4 +1,4 @@
-boolean speeded
+boolean speeded;
 
 if (client.isMouseDown(1) && !client.isKeyDown(57) && client.keybinds.isPressed("forward") && modules.isEnabled("Scaffold") && client.getPlayer().onGround()) {
     client.keybinds.setPressed("use", false);
