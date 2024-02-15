@@ -1,4 +1,4 @@
-Map<String, String> moduleList = new HashMap<>();
+Map<String, String> moduleMap = new HashMap<>();
 Map<String, Map<String, String>> settingsList = new HashMap<>();
 Map<String, Map<String, Map<String, Double>>> valuesList = new HashMap<>();
 
@@ -17,7 +17,53 @@ boolean onPacketSent(CPacket packet) {
     String input = parts[0].substring(1);
     if (input.isEmpty()) return false;
 
-    String module = moduleList.get(input);
+    if (parts[0].equals(".help") || parts[0].equals(".list")) {
+        List<String> modulesList = new ArrayList<>(moduleMap.keySet());
+        for (int i = 0; i < modulesList.size() - 1; i++) {
+            for (int j = 0; j < modulesList.size() - i - 1; j++) {
+                if (modulesList.get(j).compareToIgnoreCase(modulesList.get(j + 1)) > 0) {
+                    String temp = modulesList.get(j);
+                    modulesList.set(j, modulesList.get(j + 1));
+                    modulesList.set(j + 1, temp);
+                }
+            }
+        }
+
+        int page = 1;
+        int itemsPerPage = 10;
+        if (parts.length > 1) {
+            try {
+                page = Integer.parseInt(parts[1]);
+            } catch (NumberFormatException e) {
+                client.print(chatPrefix + chatColor('e') + "Invalid page number.");
+                return false;
+            }
+        }
+
+        int totalItems = modulesList.size();
+        int totalPages = (totalItems + itemsPerPage - 1) / itemsPerPage;
+        if (page < 1) {
+            page = 1;
+        } else if (page > totalPages) {
+            page = totalPages;
+        }
+
+        int start = (page - 1) * itemsPerPage;
+        int end = Math.min(start + itemsPerPage, totalItems);
+
+        client.print(chatPrefix + chatColor('e') + "Modules List (" + chatColor('3') + page + chatColor('7') + "/" + chatColor('3') + totalPages + chatColor('e') + ")");
+        for (int i = start; i < end; i++) {
+            String moduleName = modulesList.get(i);
+            String module = moduleMap.get(moduleName);
+            boolean enabled = modules.isEnabled(module);
+            String goofer = enabled == true ? chatColor('a') + "true" : chatColor('c') + "false";
+            client.print(chatPrefix + chatColor('7') + moduleName + ": " + goofer);
+        }
+
+        return false;
+    }
+
+    String module = moduleMap.get(input);
     if (module == null) return false;
 
     if (parts.length == 1) {
@@ -118,85 +164,85 @@ String chatColor(char color) {
 void onLoad() {
     modules.registerSlider("Credit", 0, new String[]{"pug", "mic"});
 
-    moduleList.put("autoclicker", "AutoClicker");
-    moduleList.put("aimassist", "AimAssist");
-    moduleList.put("antiknockback", "AntiKnockback");
-    moduleList.put("burstclicker", "BurstClicker");
-    moduleList.put("clickassist", "ClickAssist");
-    moduleList.put("hitbox", "Hitbox");
-    moduleList.put("jump-reset", "Jump Reset");
-    moduleList.put("killaura", "KillAura");
-    moduleList.put("reach", "Reach");
-    moduleList.put("reduce", "Reduce");
-    moduleList.put("rodaimbot", "RodAimbot");
-    moduleList.put("tpaura", "TPAura");
-    moduleList.put("velocity", "Velocity");
-    moduleList.put("wtap", "WTap");
-    moduleList.put("bhop", "Bhop");
-    moduleList.put("boost", "Boost");
-    moduleList.put("dolphin", "Dolphin");
-    moduleList.put("fly", "Fly");
-    moduleList.put("invmove", "InvMove");
-    moduleList.put("keepsprint", "KeepSprint");
-    moduleList.put("long-jump", "Long Jump");
-    moduleList.put("noslow", "NoSlow");
-    moduleList.put("speed", "Speed");
-    moduleList.put("sprint", "Sprint");
-    moduleList.put("stopmotion", "Stop Motion");
-    moduleList.put("teleport", "Teleport");
-    moduleList.put("timer", "Timer");
-    moduleList.put("vclip", "VClip");
-    moduleList.put("antiafk", "AntiAFK");
-    moduleList.put("antifireball", "AntiFireball");
-    moduleList.put("autojump", "AutoJump");
-    moduleList.put("autoplace", "AutoPlace");
-    moduleList.put("autoswap", "AutoSwap");
-    moduleList.put("autotool", "AutoTool");
-    moduleList.put("bedaura", "BedAura");
-    moduleList.put("blink", "Blink");
-    moduleList.put("delay-remover", "Delay Remover");
-    moduleList.put("fake-lag", "Fake Lag");
-    moduleList.put("fastmine", "FastMine");
-    moduleList.put("fastplace", "FastPlace");
-    moduleList.put("freecam", "Freecam");
-    moduleList.put("invmanager", "InvManager");
-    moduleList.put("nofall", "NoFall");
-    moduleList.put("norotate", "NoRotate");
-    moduleList.put("safewalk", "Safewalk");
-    moduleList.put("scaffold", "Scaffold");
-    moduleList.put("tower", "Tower");
-    moduleList.put("water-bucket", "Water Bucket");
-    moduleList.put("antishuffle", "AntiShuffle");
-    moduleList.put("bedesp", "BedESP");
-    moduleList.put("breakprogress", "BreakProgress");
-    moduleList.put("chams", "Chams");
-    moduleList.put("chestesp", "ChestESP");
-    moduleList.put("indicators", "Indicators");
-    moduleList.put("itemesp", "ItemESP");
-    moduleList.put("mobesp", "MobESP");
-    moduleList.put("nametags", "Nametags");
-    moduleList.put("offscreenesp", "OffScreenESP");
-    moduleList.put("playeresp", "PlayerESP");
-    moduleList.put("radar", "Radar");
-    moduleList.put("shaders", "Shaders");
-    moduleList.put("targethud", "TargetHUD");
-    moduleList.put("tracers", "Tracers");
-    moduleList.put("trajectories", "Trajectories");
-    moduleList.put("hud", "HUD");
-    moduleList.put("xray", "Xray");
-    moduleList.put("autowho", "AutoWho");
-    moduleList.put("bedwars-helper", "Bedwars Helper");
-    moduleList.put("bridge-info", "Bridge Info");
-    moduleList.put("duels-stats", "Duels Stats");
-    moduleList.put("murder-mystery", "Murder Mystery");
-    moduleList.put("sumo-fences", "Sumo Fences");
-    moduleList.put("woolwars", "WoolWars");
-    moduleList.put("quakecraft", "Quakecraft");
-    moduleList.put("anticheat", "Anticheat");
-    moduleList.put("latency-alerts", "Latency Alerts");
-    moduleList.put("name-hider", "Name Hider");
-    moduleList.put("antibot", "AntiBot");
-    moduleList.put("gui", "Gui");
+    moduleMap.put("autoclicker", "AutoClicker");
+    moduleMap.put("aimassist", "AimAssist");
+    moduleMap.put("antiknockback", "AntiKnockback");
+    moduleMap.put("burstclicker", "BurstClicker");
+    moduleMap.put("clickassist", "ClickAssist");
+    moduleMap.put("hitbox", "Hitbox");
+    moduleMap.put("jump-reset", "Jump Reset");
+    moduleMap.put("killaura", "KillAura");
+    moduleMap.put("reach", "Reach");
+    moduleMap.put("reduce", "Reduce");
+    moduleMap.put("rodaimbot", "RodAimbot");
+    moduleMap.put("tpaura", "TPAura");
+    moduleMap.put("velocity", "Velocity");
+    moduleMap.put("wtap", "WTap");
+    moduleMap.put("bhop", "Bhop");
+    moduleMap.put("boost", "Boost");
+    moduleMap.put("dolphin", "Dolphin");
+    moduleMap.put("fly", "Fly");
+    moduleMap.put("invmove", "InvMove");
+    moduleMap.put("keepsprint", "KeepSprint");
+    moduleMap.put("long-jump", "Long Jump");
+    moduleMap.put("noslow", "NoSlow");
+    moduleMap.put("speed", "Speed");
+    moduleMap.put("sprint", "Sprint");
+    moduleMap.put("stopmotion", "Stop Motion");
+    moduleMap.put("teleport", "Teleport");
+    moduleMap.put("timer", "Timer");
+    moduleMap.put("vclip", "VClip");
+    moduleMap.put("antiafk", "AntiAFK");
+    moduleMap.put("antifireball", "AntiFireball");
+    moduleMap.put("autojump", "AutoJump");
+    moduleMap.put("autoplace", "AutoPlace");
+    moduleMap.put("autoswap", "AutoSwap");
+    moduleMap.put("autotool", "AutoTool");
+    moduleMap.put("bedaura", "BedAura");
+    moduleMap.put("blink", "Blink");
+    moduleMap.put("delay-remover", "Delay Remover");
+    moduleMap.put("fake-lag", "Fake Lag");
+    moduleMap.put("fastmine", "FastMine");
+    moduleMap.put("fastplace", "FastPlace");
+    moduleMap.put("freecam", "Freecam");
+    moduleMap.put("invmanager", "InvManager");
+    moduleMap.put("nofall", "NoFall");
+    moduleMap.put("norotate", "NoRotate");
+    moduleMap.put("safewalk", "Safewalk");
+    moduleMap.put("scaffold", "Scaffold");
+    moduleMap.put("tower", "Tower");
+    moduleMap.put("water-bucket", "Water Bucket");
+    moduleMap.put("antishuffle", "AntiShuffle");
+    moduleMap.put("bedesp", "BedESP");
+    moduleMap.put("breakprogress", "BreakProgress");
+    moduleMap.put("chams", "Chams");
+    moduleMap.put("chestesp", "ChestESP");
+    moduleMap.put("indicators", "Indicators");
+    moduleMap.put("itemesp", "ItemESP");
+    moduleMap.put("mobesp", "MobESP");
+    moduleMap.put("nametags", "Nametags");
+    moduleMap.put("offscreenesp", "OffScreenESP");
+    moduleMap.put("playeresp", "PlayerESP");
+    moduleMap.put("radar", "Radar");
+    moduleMap.put("shaders", "Shaders");
+    moduleMap.put("targethud", "TargetHUD");
+    moduleMap.put("tracers", "Tracers");
+    moduleMap.put("trajectories", "Trajectories");
+    moduleMap.put("hud", "HUD");
+    moduleMap.put("xray", "Xray");
+    moduleMap.put("autowho", "AutoWho");
+    moduleMap.put("bed-wars", "Bed Wars");
+    moduleMap.put("bridge-info", "Bridge Info");
+    moduleMap.put("duels-stats", "Duels Stats");
+    moduleMap.put("murder-mystery", "Murder Mystery");
+    moduleMap.put("sumo-fences", "Sumo Fences");
+    moduleMap.put("woolwars", "WoolWars");
+    moduleMap.put("quakecraft", "Quakecraft");
+    moduleMap.put("anticheat", "Anticheat");
+    moduleMap.put("latency-alerts", "Latency Alerts");
+    moduleMap.put("name-hider", "Name Hider");
+    moduleMap.put("antibot", "AntiBot");
+    moduleMap.put("gui", "Gui");
 
     Map<String, String> settings = new HashMap<>();
     settings.put("min-cps", "Min CPS");
@@ -272,7 +318,7 @@ void onLoad() {
     settings.put("rotation-smoothing", "Rotation smoothing");
     settings.put("sort-mode", "Sort mode");
     settings.put("switch-delay", "Switch delay");
-    settings.put("targets", "Targets (max)");
+    settings.put("targets", "Targets");
     settings.put("aim-invis", "Aim invis");
     settings.put("disable-in-inventory", "Disable in inventory");
     settings.put("disable-while-blocking", "Disable while blocking");
@@ -410,7 +456,7 @@ void onLoad() {
 
     settings = new HashMap<>();
     settings.put("mode", "Mode");
-    settings.put("slow", "Slow %");
+    settings.put("slow", "Slow");
     settings.put("disable-bow", "Disable bow");
     settings.put("sword-only", "Sword only");
     settings.put("vanilla-sword", "Vanilla sword");
@@ -932,7 +978,7 @@ void onLoad() {
     settings.put("obsidian-on-bed", "Obsidian on bed");
     settings.put("ender-pearl", "Ender pearl");
     settings.put("should-ping", "Should ping");
-    settingsList.put("Bedwars Helper", settings);
+    settingsList.put("Bed Wars", settings);
 
     settings = new HashMap<>();
     settings.put("mode", "Mode");
